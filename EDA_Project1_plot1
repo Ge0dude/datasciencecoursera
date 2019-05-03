@@ -1,0 +1,6 @@
+df <- read.table("C:\\Users\\btucker5\\LEARNING_and_TRAINING\\ExploratoryDataAnalysis\\data\\trunc_household_power_consumption.txt",
+                 sep = ';',
+                 header = TRUE)
+
+hist(as.numeric(df$Global_active_power), col="red", 
+     main="Global Active Power", xlab="Global Active Power (kilowatts)")
