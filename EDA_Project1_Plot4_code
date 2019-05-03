@@ -1,0 +1,20 @@
+df <- read.table("C:\\Users\\btucker5\\LEARNING_and_TRAINING\\ExploratoryDataAnalysis\\data\\trunc_household_power_consumption.txt",
+                 sep = ';',
+                 header = TRUE)
+
+datetime <- strptime(paste(df$Date, df$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
+par(mfrow = c(2, 2)) 
+
+plot(datetime, as.numeric(df$Global_active_power), 
+     type="l", xlab="", ylab="Global Active Power")
+plot(datetime, df$Voltage, type="l", xlab="datetime", ylab="Voltage")
+
+plot(datetime, as.numeric(df$Sub_metering_1), type ="l",
+     ylab="Energy sub metering")
+lines(datetime, as.numeric(df$Sub_metering_2), type ="l",
+      col="red")
+lines(datetime, as.numeric(df$Sub_metering_3), type ="l",
+      col="blue")
+
+plot(datetime, df$Global_reactive_power, type="l", xlab="datetime", 
+     ylab="Global_reactive_power")
